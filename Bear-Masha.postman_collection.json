@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "128e06be-5246-4c6a-b751-80277fd4b882",
+		"name": "Bear-Masha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1237334"
+	},
+	"item": [
+		{
+			"name": "Получение списка карточек",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/cards",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение токена",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение карточки",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/cards/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cards",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление карточки",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/cards/15",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cards",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание карточки",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "qwerty",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "qwerty",
+							"type": "text"
+						},
+						{
+							"key": "deadlineAt",
+							"value": "2022-11-26T12:49:44.065373Z",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"value": "4,5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/cards",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование карточки",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/cards/13",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cards",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Загрузка файлов",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/svpak/Downloads/photo_2022-11-20 11.49.47.jpeg"
+						},
+						{
+							"key": "type",
+							"value": "image",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/file/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение файла",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzIxNTIyNTIsIm5iZiI6MTY2OTU2MDI1Mn0.0qOtQF4dCDy_t-Lj_EKEMfpnGhdN2Yh8epVWNgZnR1Y",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/static/upload-984346572.jpeg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"static",
+						"upload-984346572.jpeg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
