@@ -12,6 +12,7 @@ func RespondErr(w http.ResponseWriter, errMsg string, code int) {
 	errObj := struct {
 		Error string `json:"error"`
 	}{Error: errMsg}
+
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(code)
 

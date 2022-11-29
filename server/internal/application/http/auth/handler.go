@@ -32,6 +32,7 @@ func (h *Handler) Auth(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		logger.Error("invalid params", zap.Error(err))
 		error_handler.RespondErr(w, "invalid params", http.StatusBadRequest)
+
 		return
 	}
 
@@ -39,6 +40,7 @@ func (h *Handler) Auth(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		logger.Error("sign in usecase error", zap.Error(err))
 		error_handler.RespondErr(w, "not authorized", http.StatusUnauthorized)
+
 		return
 	}
 

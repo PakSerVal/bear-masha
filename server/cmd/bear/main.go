@@ -52,7 +52,7 @@ func main() {
 	cardFilesRepo := repository.NewCardFileRepository(db)
 
 	getListUc := get_list.New(cardRepo, fileRepo)
-	getByIdUc := get_by_id.New(cardRepo, fileRepo)
+	getByIDUc := get_by_id.New(cardRepo, fileRepo)
 	createUc := create.New(cardRepo, cardFilesRepo)
 	deleteUc := delete.New(cardRepo)
 	updateUc := update.New(cardRepo)
@@ -60,7 +60,7 @@ func main() {
 	validateUC := validate.New(c.SecretKey)
 	uploadFileUC := upload.New(fileRepo)
 
-	cardHandler := cards.New(getListUc, getByIdUc, createUc, deleteUc, updateUc)
+	cardHandler := cards.New(getListUc, getByIDUc, createUc, deleteUc, updateUc)
 	authHandler := auth.New(signInUC)
 
 	fileHandler := file.New(uploadFileUC)
@@ -70,7 +70,7 @@ func main() {
 
 	r.HandleFunc("/cards", cardHandler.GetList).Methods("GET")
 	r.HandleFunc("/cards", cardHandler.Create).Methods("POST")
-	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.GetById).Methods("GET")
+	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.GetByID).Methods("GET")
 	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Delete).Methods("DELETE")
 	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Update).Methods("PUT")
 
@@ -81,7 +81,7 @@ func main() {
 	authMiddleware := middleware.New(validateUC)
 	r.Use(authMiddleware.Middleware)
 
-	addr := fmt.Sprintf(":%d", c.HttpPort)
+	addr := fmt.Sprintf(":%d", c.HTTPPort)
 	logger.Info("starting server", zap.String("addr", addr))
 	_ = http.ListenAndServe(addr, r)
 }

@@ -19,6 +19,7 @@ func InitLogger(isDev bool) {
 		cfg.Level = zap.NewAtomicLevelAt(zap.InfoLevel)
 		logger, err = cfg.Build()
 	}
+
 	if err != nil {
 		log.Fatal("cannot init zap", err)
 	}

@@ -5,7 +5,7 @@ import (
 )
 
 type Config struct {
-	HttpPort  int64
+	HTTPPort  int64
 	IsDev     bool
 	Password  string
 	Login     string
@@ -25,7 +25,7 @@ type ConnConfig struct {
 func New() *Config {
 	c := &Config{}
 
-	flag.Int64Var(&c.HttpPort, "httpPort", 8080, "Http port")
+	flag.Int64Var(&c.HTTPPort, "httpPort", 8080, "Http port")
 	flag.BoolVar(&c.IsDev, "dev", true, "development mode")
 	flag.StringVar(&c.SecretKey, "secretKey", "", "secret key")
 

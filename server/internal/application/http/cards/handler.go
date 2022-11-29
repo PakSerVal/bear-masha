@@ -18,7 +18,7 @@ import (
 
 type CardHandler struct {
 	getListUc get_list.Usecase
-	getByIdUC get_by_id.Usecase
+	getByIDUC get_by_id.Usecase
 	createUC  create.Usecase
 	deleteUC  delete.Usecase
 	updateUC  update.Usecase
@@ -26,14 +26,14 @@ type CardHandler struct {
 
 func New(
 	getListUC get_list.Usecase,
-	getByIdUC get_by_id.Usecase,
+	getByIDUC get_by_id.Usecase,
 	createUC create.Usecase,
 	deleteUC delete.Usecase,
 	updateUC update.Usecase,
 ) *CardHandler {
 	return &CardHandler{
 		getListUc: getListUC,
-		getByIdUC: getByIdUC,
+		getByIDUC: getByIDUC,
 		createUC:  createUC,
 		deleteUC:  deleteUC,
 		updateUC:  updateUC,
@@ -52,7 +52,7 @@ func (h *CardHandler) GetList(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (h *CardHandler) GetById(w http.ResponseWriter, r *http.Request) {
+func (h *CardHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 
 	id, err := strconv.Atoi(vars["id"])
@@ -61,7 +61,7 @@ func (h *CardHandler) GetById(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	res, err := h.getByIdUC.Do(r.Context(), int64(id))
+	res, err := h.getByIDUC.Do(r.Context(), int64(id))
 	if err != nil {
 		error_handler.RespondInternalErr(w, err)
 		return

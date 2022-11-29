@@ -22,6 +22,7 @@ func (f *fileRepository) Save(ctx context.Context, path string, fileType string)
 	query := `insert into files(path, type) values ($1, $2) returning id`
 
 	var id int64
+
 	err := f.db.QueryRowContext(ctx, query, path, fileType).Scan(&id)
 	if err != nil {
 		return nil, errors.Wrap(err, "repo: create card")
@@ -34,13 +35,14 @@ func (f *fileRepository) Save(ctx context.Context, path string, fileType string)
 	}, nil
 }
 
-func (f *fileRepository) GetCardFiles(ctx context.Context, cardId int64) ([]file.File, error) {
+func (f *fileRepository) GetCardFiles(ctx context.Context, cardID int64) ([]file.File, error) {
 	query := `select f.id, f.path, f.type from files f
     inner join card_files cf on f.id = cf.file_id
 	where cf.card_id = $1`
 
 	var files []file.File
-	err := f.db.SelectContext(ctx, &files, query, cardId)
+
+	err := f.db.SelectContext(ctx, &files, query, cardID)
 	if err != nil {
 		return nil, errors.Wrap(err, "repo: get card files")
 	}

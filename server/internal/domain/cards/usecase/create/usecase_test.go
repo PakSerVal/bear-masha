@@ -16,6 +16,7 @@ func Test_usecase_Do(t *testing.T) {
 		cardRepo      create.CardRepository
 		cardFilesRepo create.CardFilesRepository
 	}
+
 	type args struct {
 		ctx         context.Context
 		title       string
@@ -23,6 +24,7 @@ func Test_usecase_Do(t *testing.T) {
 		deadlineAt  time.Time
 		files       *[]int64
 	}
+
 	tests := []struct {
 		name    string
 		fields  fields
@@ -47,9 +49,10 @@ func Test_usecase_Do(t *testing.T) {
 				deadlineAt:  time.Now(),
 				files:       nil,
 			},
-			wantErr: false,
+			wantErr: true,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			u := create.New(tt.fields.cardRepo, tt.fields.cardFilesRepo)

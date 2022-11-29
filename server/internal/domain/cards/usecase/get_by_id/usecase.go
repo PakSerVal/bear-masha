@@ -9,11 +9,11 @@ import (
 )
 
 type CardRepository interface {
-	GetById(ctx context.Context, id int64) (*cards.Card, error)
+	GetByID(ctx context.Context, id int64) (*cards.Card, error)
 }
 
 type FileRepository interface {
-	GetCardFiles(ctx context.Context, cardId int64) ([]file.File, error)
+	GetCardFiles(ctx context.Context, cardID int64) ([]file.File, error)
 }
 
 type Usecase interface {
@@ -25,7 +25,7 @@ type usecase struct {
 	fileRepo FileRepository
 }
 
-func New(cardRepo CardRepository, fileRepo FileRepository) *usecase {
+func New(cardRepo CardRepository, fileRepo FileRepository) Usecase {
 	return &usecase{
 		cardRepo: cardRepo,
 		fileRepo: fileRepo,
@@ -33,7 +33,7 @@ func New(cardRepo CardRepository, fileRepo FileRepository) *usecase {
 }
 
 func (u *usecase) Do(ctx context.Context, id int64) (*cards.Card, error) {
-	card, err := u.cardRepo.GetById(ctx, id)
+	card, err := u.cardRepo.GetByID(ctx, id)
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -42,7 +42,7 @@ func (u *usecase) Do(ctx context.Context, id int64) (*cards.Card, error) {
 		return nil, nil
 	}
 
-	card.Files, err = u.fileRepo.GetCardFiles(ctx, card.Id)
+	card.Files, err = u.fileRepo.GetCardFiles(ctx, card.ID)
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}

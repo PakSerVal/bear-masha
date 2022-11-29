@@ -17,10 +17,10 @@ func NewCardFileRepository(db *sqlx.DB) *cardFilesRepository {
 	}
 }
 
-func (f *cardFilesRepository) Save(ctx context.Context, cardId int64, fileId int64) error {
+func (f *cardFilesRepository) Save(ctx context.Context, cardID int64, fileID int64) error {
 	query := `insert into card_files(card_id, file_id) values ($1, $2)`
 
-	_, err := f.db.ExecContext(ctx, query, cardId, fileId)
+	_, err := f.db.ExecContext(ctx, query, cardID, fileID)
 	if err != nil {
 		return errors.Wrap(err, "repo: create card")
 	}

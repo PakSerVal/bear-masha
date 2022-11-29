@@ -14,7 +14,7 @@ type CardRepository interface {
 }
 
 type CardFilesRepository interface {
-	Save(ctx context.Context, cardId int64, fileId int64) error
+	Save(ctx context.Context, cardID int64, fileID int64) error
 }
 
 type Usecase interface {
@@ -26,7 +26,7 @@ type usecase struct {
 	cardFilesRepo CardFilesRepository
 }
 
-func New(repo CardRepository, cardFilesRepo CardFilesRepository) *usecase {
+func New(repo CardRepository, cardFilesRepo CardFilesRepository) Usecase {
 	return &usecase{
 		cardRepo:      repo,
 		cardFilesRepo: cardFilesRepo,
@@ -45,8 +45,8 @@ func (u *usecase) Do(ctx context.Context, title string, description string, dead
 	}
 
 	if files != nil {
-		for _, fileId := range *files {
-			err := u.cardFilesRepo.Save(ctx, card.Id, fileId)
+		for _, fileID := range *files {
+			err := u.cardFilesRepo.Save(ctx, card.ID, fileID)
 			if err != nil {
 				return errors.WithStack(err)
 			}

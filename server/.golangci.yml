@@ -65,7 +65,6 @@ linters:
   - nolintlint
   - nilerr
   - prealloc
-  - predeclared
   - revive
   - staticcheck
   - stylecheck
@@ -82,7 +81,7 @@ issues:
     # _ instead of err checks
     - G104
     # for "public interface + private struct implementation" cases only!
-    - exported func * returns unexported type *, which can be annoying to use
+    - unexported-return
     # can be removed in the development phase
     - (comment on exported (method|function|type|const)|should have( a package)? comment|comment should be of the form)
     # not for the active development - can be removed in the stable phase
@@ -94,6 +93,8 @@ issues:
     - "not declared by package utf8"
     - "unicode/utf8/utf8.go"
     - ST1003 # todo packages names without underscore https://go.dev/doc/effective_go#package-names
+    - G114
+    - G402
   exclude-rules:
     - path: _test\.go
       linters:

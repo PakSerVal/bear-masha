@@ -12,7 +12,7 @@ const (
 )
 
 type Card struct {
-	Id          int64       `json:"id"`
+	ID          int64       `json:"id"`
 	Title       string      `json:"title"`
 	Description string      `json:"description"`
 	Status      string      `json:"status"`

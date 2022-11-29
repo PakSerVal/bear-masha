@@ -18,7 +18,7 @@ type usecase struct {
 	repo Repository
 }
 
-func New(repo Repository) *usecase {
+func New(repo Repository) Usecase {
 	return &usecase{
 		repo: repo,
 	}

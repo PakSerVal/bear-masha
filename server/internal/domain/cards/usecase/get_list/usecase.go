@@ -15,7 +15,7 @@ type CardRepository interface {
 }
 
 type FileRepository interface {
-	GetCardFiles(ctx context.Context, cardId int64) ([]file.File, error)
+	GetCardFiles(ctx context.Context, cardID int64) ([]file.File, error)
 }
 
 type Usecase interface {
@@ -27,7 +27,7 @@ type usecase struct {
 	fileRepo FileRepository
 }
 
-func New(repo CardRepository, fileRepo FileRepository) *usecase {
+func New(repo CardRepository, fileRepo FileRepository) Usecase {
 	return &usecase{
 		cardRepo: repo,
 		fileRepo: fileRepo,
@@ -41,8 +41,9 @@ func (u *usecase) Do(ctx context.Context) (map[string][]cards.Card, error) {
 	}
 
 	cardByStatuses := map[string][]cards.Card{}
+
 	for _, card := range res {
-		card.Files, err = u.fileRepo.GetCardFiles(ctx, card.Id)
+		card.Files, err = u.fileRepo.GetCardFiles(ctx, card.ID)
 		if err != nil {
 			return nil, errors.WithStack(err)
 		}

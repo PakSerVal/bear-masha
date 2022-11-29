@@ -16,9 +16,13 @@ func Connect(c config.ConnConfig) (*sqlx.DB, error) {
 	}
 
 	var tlsConfig *tls.Config
+
 	if c.SslMode == "require" {
-		tlsConfig = &tls.Config{}
+		tlsConfig = &tls.Config{
+			MinVersion: 0,
+		}
 	}
+
 	optConfig := pgx.ConnConfig{
 		Host:      c.Host,
 		Port:      uint16(c.Port),

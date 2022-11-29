@@ -30,11 +30,13 @@ func (h *Handler) Upload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	t := r.FormValue("type")
+
 	file, header, err := r.FormFile("file")
 	if err != nil {
 		error_handler.RespondInternalErr(w, err)
 		return
 	}
+
 	defer func() {
 		_ = file.Close()
 	}()

@@ -34,6 +34,7 @@ func (c *cardRepository) GetList(ctx context.Context, limit int64) ([]cards.Card
 	`
 
 	var cards []cards.Card
+
 	err := c.db.SelectContext(ctx, &cards, query, limit)
 	if err != nil {
 		return nil, errors.Wrap(err, "repo: get list")
@@ -42,7 +43,7 @@ func (c *cardRepository) GetList(ctx context.Context, limit int64) ([]cards.Card
 	return cards, nil
 }
 
-func (c *cardRepository) GetById(ctx context.Context, id int64) (*cards.Card, error) {
+func (c *cardRepository) GetByID(ctx context.Context, id int64) (*cards.Card, error) {
 	const query = `
 		select
 			id,
@@ -80,12 +81,13 @@ func (c *cardRepository) Create(ctx context.Context, card cards.Card) (*cards.Ca
 		returning id`
 
 	var id int64
+
 	err := c.db.QueryRowContext(ctx, query, card.Title, card.Description, card.Status, card.DeadlineAt).Scan(&id)
 	if err != nil {
 		return nil, errors.Wrap(err, "repo: create card")
 	}
 
-	card.Id = id
+	card.ID = id
 
 	return &card, nil
 }
@@ -104,7 +106,7 @@ func (c *cardRepository) Delete(ctx context.Context, id int64) error {
 func (c *cardRepository) Update(ctx context.Context, card cards.Card) error {
 	query := `UPDATE cards SET title=$1, description=$2, status=$3, deadline_at=$4 WHERE id=$5`
 
-	_, err := c.db.ExecContext(ctx, query, card.Title, card.Description, card.Status, card.DeadlineAt, card.Id)
+	_, err := c.db.ExecContext(ctx, query, card.Title, card.Description, card.Status, card.DeadlineAt, card.ID)
 	if err != nil {
 		return errors.Wrap(err, "repo: update card")
 	}
