@@ -1,9 +1,9 @@
 image: golang:latest
 
 stages:
+  - build
   - lint
   - test
-  - build
   - deploy
 
 test:

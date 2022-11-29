@@ -35,7 +35,9 @@ func (h *Handler) Upload(w http.ResponseWriter, r *http.Request) {
 		error_handler.RespondInternalErr(w, err)
 		return
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
 	tempFile, err := os.CreateTemp("static", fmt.Sprintf("upload-*%s", filepath.Ext(header.Filename)))
 	if err != nil {
