@@ -6,7 +6,7 @@ stages:
   - build
   - deploy
 
-format:
+test:
   stage: test
   script:
     - cd server
@@ -34,13 +34,12 @@ golint:
   script:
     - cd server
     - '[ -e .golangci.yml ] || cp /golangci/.golangci.yml .'
-    - golangci-lint run --issues-exit-code 0 --out-format code-climate | tee gl-code-quality-report.json | jq -r '.[] | "\(.location.path):\(.location.lines.begin) \(.description)"'
+    - golangci-lint run --out-format code-climate | tee gl-code-quality-report.json | jq -r '.[] | "\(.location.path):\(.location.lines.begin) \(.description)"'
   artifacts:
     reports:
       codequality: gl-code-quality-report.json
     paths:
       - gl-code-quality-report.json
-  allow_failure: true
 
 compile:
   stage: build
