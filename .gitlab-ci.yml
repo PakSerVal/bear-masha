@@ -40,6 +40,7 @@ golint:
       codequality: gl-code-quality-report.json
     paths:
       - gl-code-quality-report.json
+  allow_failure: true
 
 compile:
   stage: build
