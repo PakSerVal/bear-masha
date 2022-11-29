@@ -28,7 +28,6 @@ func (u *usecase) Do(ctx context.Context, tokenString string) error {
 
 		return []byte(u.secretKey), nil
 	})
-
 	if err != nil {
 		return errors.Wrap(err, "invalid token")
 	}

@@ -28,14 +28,14 @@ func (f *fileRepository) Save(ctx context.Context, path string, fileType string)
 	}
 
 	return &file.File{
-		Id:   id,
+		ID:   id,
 		Path: path,
 		Type: fileType,
 	}, nil
 }
 
 func (f *fileRepository) GetCardFiles(ctx context.Context, cardId int64) ([]file.File, error) {
-	query := `select f.id, f.path, f.type from files f 
+	query := `select f.id, f.path, f.type from files f
     inner join card_files cf on f.id = cf.file_id
 	where cf.card_id = $1`
 

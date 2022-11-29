@@ -1,3 +1,4 @@
 /db/
 /infrastructure/
 /server/static/
+/.pre-commit-config.yaml

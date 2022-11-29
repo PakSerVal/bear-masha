@@ -6,7 +6,7 @@ const (
 )
 
 type File struct {
-	Id   int64  `json:"id"`
+	ID   int64  `json:"id"`
 	Path string `json:"path"`
 	Type string `json:"type"`
 }
