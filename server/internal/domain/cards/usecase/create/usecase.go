@@ -8,6 +8,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+//go:generate mockery --name=CardRepository --with-expecter
 type CardRepository interface {
 	Create(ctx context.Context, card cards.Card) (*cards.Card, error)
 }
