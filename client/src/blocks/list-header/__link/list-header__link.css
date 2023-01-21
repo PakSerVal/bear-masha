@@ -1,0 +1,18 @@
+.list-header__link {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: right;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+    background: -webkit-linear-gradient(60deg, #FF9476, #EA69D8, #57B7FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.list-header__link:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease-out;
+}

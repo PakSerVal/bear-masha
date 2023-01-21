@@ -1,0 +1,20 @@
+.form-page__submit-button {
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    min-height: 80px;
+    width: 100%;
+    background: -webkit-linear-gradient(5deg, #FF9476, #EA69D8, #57B7FF);
+    border-radius: 25px;
+    border: none;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #FFF;
+    box-shadow: 0 3px 3px 0 rgba(55, 45, 200, 0.3);
+}
+
+.form-page__submit-button:hover {
+    transform: scale(1.025);
+    transition: transform .3s ease-out;
+}

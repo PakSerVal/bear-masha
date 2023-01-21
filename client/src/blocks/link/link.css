@@ -1,0 +1,12 @@
+.link {
+    padding: 0;
+    cursor: pointer;
+}
+
+.link:hover {
+    background: -webkit-linear-gradient(60deg, #FF9476, #EA69D8, #57B7FF);
+    font-weight: 600;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background .3s ease-out;
+}

@@ -1,0 +1,5 @@
+.emoji-picker__item {
+    width: 35px;
+    height: 100%;
+    cursor: pointer;
+}

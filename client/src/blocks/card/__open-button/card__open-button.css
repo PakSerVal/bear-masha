@@ -1,0 +1,11 @@
+.card__open-button {
+    display: block;
+    background-image: url(../../../images/menu-button.svg);
+    height: 30px;
+    width: 10px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 8px 30px;
+}

@@ -1,0 +1,32 @@
+.form-page__input {
+    margin: 0;
+    padding: 20px 30px;
+    border: 0;
+    border-radius: 25px;
+    width: 100%;
+    min-height: 80px;
+    box-sizing: border-box;
+    background-color: #FFF;
+    overflow: hidden;
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 3px 3px 0 rgba(55, 45, 200, 0.3);
+}
+
+.form-page__input:last-of-type {
+    margin: 40px 0 0;
+}
+
+.form-page__input::placeholder {
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #707070;
+}
+
+.form-page__input:focus-visible {
+    outline: none;
+    border: 3px solid #C4A4ED;
+}

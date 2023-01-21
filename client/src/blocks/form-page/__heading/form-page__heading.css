@@ -1,0 +1,9 @@
+.form-page__heading {
+    margin: 140px 0 60px;
+    padding: 0;
+    text-align: left;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    color: #000;
+}

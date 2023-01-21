@@ -1,13 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import url(./blocks/page/page.css);
+@import url(./blocks/page/__container/page__container.css);
+
+@import url(./blocks/section/section.css);
+
+@import url(./blocks/content/content.css);
+@import url(./blocks/page/__content/page__content.css);
+@import url(./blocks/content/__section/content__section.css);
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/page/__header/page__header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__link-wrapper/header__link-wrapper.css);
+@import url(./blocks/header/__link/header__link.css);
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__text/profile__text.css);
+@import url(./blocks/profile/__text/_type/profile__text_type_name.css);
+@import url(./blocks/profile/__text/_type/profile__text_type_status.css);
+
+@import url(./blocks/list-header/list-header.css);
+@import url(./blocks/list-header/__toggle/list-header__toggle.css);
+@import url(./blocks/list-header/__toggle-link/list-header__toggle-link.css);
+@import url(./blocks/list-header/__toggle-link/_active/list-header__toggle-link_active.css);
+@import url(./blocks/list-header/__switch/list-header__switch.css);
+@import url(./blocks/list-header/__checkbox/list-header__checkbox.css);
+@import url(./blocks/list-header/__slider/list-header__slider.css);
+@import url(./blocks/list-header/__link/list-header__link.css);
+
+@import url(./blocks/cards/cards.css);
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/_menu-opened/card_menu-opened.css);
+@import url(./blocks/card/__info/card__info.css);
+@import url(./blocks/card/__emoji/card__emoji.css);
+@import url(./blocks/card/__description/card__description.css);
+@import url(./blocks/card/__text/card__text.css);
+@import url(./blocks/card/__text/_type/card__text_type_title.css);
+@import url(./blocks/card/__text/_type/card__text_type_deadline.css);
+@import url(./blocks/card/__text/_type/card__text_type_done.css);
+@import url(./blocks/card/__text/_hidden/card__text_hidden.css);
+@import url(./blocks/card/__open-button/card__open-button.css);
+@import url(./blocks/card/__open-button/_hidden/card__open-button_hidden.css);
+@import url(./blocks/card/__menu/card__menu.css);
+@import url(./blocks/card/__menu/_opened/card__menu_opened.css);
+@import url(./blocks/card/__close-button/card__close-button.css);
+@import url(./blocks/card/__menu-button/card__menu-button.css);
+
+@import url(./blocks/form-page/form-page.css);
+@import url(./blocks/form-page/__heading/form-page__heading.css);
+@import url(./blocks/form-page/__form/form-page__form.css);
+@import url(./blocks/form-page/__input/form-page__input.css);
+@import url(./blocks/form-page/__input/_type/form-page__input_type_deadline.css);
+@import url(./blocks/form-page/__submit-button/form-page__submit-button.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+@import url(./blocks/page/__footer/page__footer.css);
+
+@import url(./blocks/link/link.css);
+@import url(./blocks/button/button.css);
+
+@import url(./blocks/emoji-picker/emoji-picker.css);
+@import url(./blocks/emoji-picker/__input/emoji-picker__input.css);
+@import url(blocks/emoji-picker/__placeholder/emoji-picker__placeholder.css);
+@import url(./blocks/emoji-picker/__container/emoji-picker__container.css);
+@import url(./blocks/emoji-picker/__item/emoji-picker__item.css);

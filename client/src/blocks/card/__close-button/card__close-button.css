@@ -1,0 +1,10 @@
+.card__close-button {
+    background-image: url(../../../images/menu-close-button.svg);
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border-style: none;
+    align-self: end;
+}

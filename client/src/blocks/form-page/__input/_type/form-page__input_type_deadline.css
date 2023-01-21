@@ -1,0 +1,12 @@
+.form-page__input_type_deadline {
+    overflow: visible;
+    background-image: url(../../../../images/deadline-icon.svg);
+    background-repeat: no-repeat;
+    background-position: right 30px top 50%;
+    background-size: 20px 23px;
+}
+
+.form-page__input_type_deadline::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+}
