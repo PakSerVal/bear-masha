@@ -22,6 +22,7 @@ import (
 	"github.com/PakSerVal/bear-masha/internal/infrastucture/repository"
 	"github.com/PakSerVal/bear-masha/pkg/psql"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"go.uber.org/zap"
 )
 
@@ -66,6 +67,13 @@ func main() {
 	fileHandler := file.New(uploadFileUC)
 
 	r := mux.NewRouter()
+
+	cors := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: false,
+	})
+
 	r.HandleFunc("/auth", authHandler.Auth).Methods("POST", "OPTIONS")
 
 	r.HandleFunc("/cards", cardHandler.GetList).Methods("GET", "OPTIONS")
@@ -83,5 +91,5 @@ func main() {
 
 	addr := fmt.Sprintf(":%d", c.HTTPPort)
 	logger.Info("starting server", zap.String("addr", addr))
-	_ = http.ListenAndServe(addr, r)
+	_ = http.ListenAndServe(addr, cors.Handler(r))
 }
