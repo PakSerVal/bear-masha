@@ -1,15 +1,15 @@
 .emoji-picker__container {
     position: absolute;
-    top: 88px;
+    top: 83px;
     right: 0;
-    padding: 30px;
+    padding: 20px 30px;
     width: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(15, 1fr);
     justify-items: start;
     align-items: center;
     column-gap: 10px;
-    row-gap: 30px;
+    row-gap: 20px;
     box-sizing: border-box;
     overflow: hidden;
     background-color: #ffffff;

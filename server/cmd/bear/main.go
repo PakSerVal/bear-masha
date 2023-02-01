@@ -66,13 +66,13 @@ func main() {
 	fileHandler := file.New(uploadFileUC)
 
 	r := mux.NewRouter()
-	r.HandleFunc("/auth", authHandler.Auth).Methods("POST")
+	r.HandleFunc("/auth", authHandler.Auth).Methods("POST", "OPTIONS")
 
-	r.HandleFunc("/cards", cardHandler.GetList).Methods("GET")
-	r.HandleFunc("/cards", cardHandler.Create).Methods("POST")
-	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.GetByID).Methods("GET")
-	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Delete).Methods("DELETE")
-	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Update).Methods("PUT")
+	r.HandleFunc("/cards", cardHandler.GetList).Methods("GET", "OPTIONS")
+	r.HandleFunc("/cards", cardHandler.Create).Methods("POST", "OPTIONS")
+	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.GetByID).Methods("GET", "OPTIONS")
+	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Delete).Methods("DELETE", "OPTIONS")
+	r.HandleFunc("/cards/{id:[0-9]+}", cardHandler.Update).Methods("PUT", "OPTIONS")
 
 	r.HandleFunc("/file/upload", fileHandler.Upload)
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/",

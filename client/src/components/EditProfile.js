@@ -9,7 +9,7 @@ function EditProfile() {
                     <input
                         id='loginEmail'
                         type='email'
-                        name='email'
+                        name='text'
                         className='form-page__input'
                         placeholder='Email'
                         required
@@ -25,7 +25,7 @@ function EditProfile() {
                         aria-label='loginPassword'
                     />
                 </div>
-                <button type='submit' className='form-page__submit-button'>Войти</button>
+                <button type='submit' className='submit-button'>Войти</button>
             </form>
         </div>
     );

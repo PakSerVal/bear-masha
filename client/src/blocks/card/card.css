@@ -3,7 +3,7 @@
     grid-template-columns: 1fr;
     justify-items: start;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 10px;
     box-sizing: border-box;
     width: 100%;
 }

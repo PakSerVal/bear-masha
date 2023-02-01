@@ -34,7 +34,7 @@ function Card() {
                 <button className={`card__open-button button ${isButtonHidden}`} type='button' onClick={handleOpenMenuButtonClick}></button>
             </div>
             <div className={`card__menu ${isMenuOpen}`}>
-                <button className='card__close-button button' type='button' onClick={handleCloseMenuButtonClick}></button>
+                <button className='close-button button' type='button' onClick={handleCloseMenuButtonClick}></button>
                 <button className='card__menu-button link' type='button'>Сделали</button>
                 <button className='card__menu-button link' type='button'>Удалить</button>
                 <button className='card__menu-button link' type='button'>Редактировать</button>

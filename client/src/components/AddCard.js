@@ -26,7 +26,7 @@ function AddCard() {
                         aria-label='plan-deadline'
                     />
                 </div>
-                <button type='submit' className='form-page__submit-button'>Добавить</button>
+                <button type='submit' className='submit-button'>Добавить</button>
             </form>
         </div>
     );

@@ -1,4 +1,4 @@
-.form-page__submit-button {
+.submit-button {
     margin: 0;
     display: inline-block;
     text-align: center;
@@ -14,7 +14,7 @@
     box-shadow: 0 3px 3px 0 rgba(55, 45, 200, 0.3);
 }
 
-.form-page__submit-button:hover {
+.submit-button:hover {
     transform: scale(1.025);
     transition: transform .3s ease-out;
 }

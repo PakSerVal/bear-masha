@@ -1,0 +1,8 @@
+.close-button_type_info-tooltip {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+}

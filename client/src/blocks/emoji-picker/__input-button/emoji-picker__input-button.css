@@ -1,0 +1,9 @@
+.emoji-picker__input-button {
+    background-image: url(../../../images/arrow-icon.svg);
+    width: 22px;
+    height: 13px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border-style: none;
+}

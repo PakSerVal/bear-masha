@@ -10,6 +10,9 @@
 @import url(./blocks/page/__content/page__content.css);
 @import url(./blocks/content/__section/content__section.css);
 
+@import url(./blocks/submit-button/submit-button.css);
+@import url(./blocks/close-button/close-button.css);
+
 @import url(./blocks/header/header.css);
 @import url(./blocks/page/__header/page__header.css);
 @import url(./blocks/header/__logo/header__logo.css);
@@ -47,7 +50,6 @@
 @import url(./blocks/card/__open-button/_hidden/card__open-button_hidden.css);
 @import url(./blocks/card/__menu/card__menu.css);
 @import url(./blocks/card/__menu/_opened/card__menu_opened.css);
-@import url(./blocks/card/__close-button/card__close-button.css);
 @import url(./blocks/card/__menu-button/card__menu-button.css);
 
 @import url(./blocks/form-page/form-page.css);
@@ -55,17 +57,30 @@
 @import url(./blocks/form-page/__form/form-page__form.css);
 @import url(./blocks/form-page/__input/form-page__input.css);
 @import url(./blocks/form-page/__input/_type/form-page__input_type_deadline.css);
-@import url(./blocks/form-page/__submit-button/form-page__submit-button.css);
 
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
 @import url(./blocks/page/__footer/page__footer.css);
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__image/popup__image.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__subtitle/popup__subtitle.css);
+@import url(./blocks/close-button/_type/close-button_type_info-tooltip.css);
 
 @import url(./blocks/link/link.css);
 @import url(./blocks/button/button.css);
 
 @import url(./blocks/emoji-picker/emoji-picker.css);
 @import url(./blocks/emoji-picker/__input/emoji-picker__input.css);
-@import url(blocks/emoji-picker/__placeholder/emoji-picker__placeholder.css);
+@import url(./blocks/emoji-picker/__input/_chosen/emoji-picker__input_chosen.css);
+@import url(./blocks/emoji-picker/__placeholder/emoji-picker__placeholder.css);
+@import url(./blocks/emoji-picker/__placeholder/_hidden/emoji-picker__placeholder_hidden.css);
+@import url(./blocks/emoji-picker/__input-button/emoji-picker__input-button.css);
+@import url(./blocks/emoji-picker/__input-button/_upside/emoji-picker__input-button_upside.css);
 @import url(./blocks/emoji-picker/__container/emoji-picker__container.css);
+@import url(./blocks/emoji-picker/__container/_opened/emoji-picker__container_opened.css);
 @import url(./blocks/emoji-picker/__item/emoji-picker__item.css);
+@import url(./blocks/emoji-picker/__item/_type/emoji-picker__item_type_input.css);
