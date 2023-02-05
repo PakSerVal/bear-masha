@@ -44,7 +44,12 @@ func (h *Handler) Auth(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = json.NewEncoder(w).Encode(token)
+	res := struct {
+		Token *string `json:"token"`
+	}{
+		Token: token,
+	}
+	err = json.NewEncoder(w).Encode(res)
 	if err != nil {
 		error_handler.RespondInternalErr(w, err)
 	}
