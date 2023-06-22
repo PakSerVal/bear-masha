@@ -1,48 +1,26 @@
 class Api {
-  constructor(config) {
-    this._baseUrl = config.baseUrl;
-    this._header = config.headers;
-  }
-
-  editProfile({ name, about}) {
-    return this._request(this._baseUrl + 'users/me', {
-      method: 'PATCH',
-      headers: this._header,
-      body: JSON.stringify( { name, about }),
-    })
-  }
-
-  changeAvatar({ avatar }) {
-    return this._request(this._baseUrl + 'users/me/avatar', {
-      method: 'PATCH',
-      headers: this._header,
-      body: JSON.stringify( { avatar }),
-    })
-  }
 
   getInitialsCards() {
-    return this._request(this._baseUrl + 'cards', { headers: this._header })
+    return fetch('http://localhost:8080/' + 'cards', {
+      method: 'GET',
+      headers: {
+        'X-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzU2OTYzMjgsIm5iZiI6MTY3MzEwNDMyOH0.4-nZZdIOH7lGOANpkTWt0pc0icTGVpSeKTs3RpzKWvE',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          return Promise.reject(new Error(response.status));
+        });
   }
 
-  addCard({ name, link }) {
+  addCard({ title, description, deadlineAt }) {
     return this._request(this._baseUrl + 'cards', {
       method: 'POST',
       headers: this._header,
-      body: JSON.stringify( { name, link }),
-    })
-  }
-
-  changeLikeCardStatus(cardId) {
-    return this._request(this._baseUrl + 'cards/' + cardId + '/likes', {
-      method: 'PUT',
-      headers: this._header,
-    })
-  }
-
-  deleteCard(cardId) {
-    return this._request(this._baseUrl + 'cards/' + cardId, {
-      method: 'DELETE',
-      headers: this._header,
+      body: { title, description, deadlineAt },
     })
   }
 
@@ -59,12 +37,11 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/cohort-52/',
-  headers: {
-    authorization: 'ae672644-5499-4af4-bef5-295b969af30e',
-    'Content-Type': 'application/json',
-  }
+  // baseUrl: 'http://localhost:8080/',
+  // headers: {
+  //   'X-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzU2OTYzMjgsIm5iZiI6MTY3MzEwNDMyOH0.4-nZZdIOH7lGOANpkTWt0pc0icTGVpSeKTs3RpzKWvE',
+  //   'Content-Type': 'application/x-www-form-urlencoded',
+  // }
 });
 
 export default api;
-

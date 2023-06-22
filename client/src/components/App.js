@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import Login from './Login';
 import AddCard from './AddCard';
-import EditProfile from './EditProfile';
 import InfoToolTip from './InfoToolTip';
 import * as auth from '../utils/auth.js';
 
 function App() {
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = useState(false);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            // api.getInitialsCards()
+        }
+
+    })
 
     function closeAllPopups() {
         setIsInfoTooltipPopupOpen(false);
     }
 
-    function handleAuthResult() {
-        setIsInfoTooltipPopupOpen(true);
+    function handleAuthResult(isOpen) {
+        setIsInfoTooltipPopupOpen(isOpen);
     }
 
     function handleLogin(login, password) {
@@ -29,26 +37,42 @@ function App() {
             .then((res) => {
                 if (res.token) {
                     localStorage.setItem('jwt', res.token);
-                    navigate.push("/");
+                    navigate('/');
+                    setIsLoggedIn(true);
                 } else {
-                    handleAuthResult(false);
+                    handleAuthResult(true);
                 }
             })
             .catch((err) => {
                 console.log(err);
-                handleAuthResult(false);
+                handleAuthResult(true);
             });
     }
 
     return (
         <div className='page'>
-            <div className='page__container'>
+        <div className='page__container'>
                 <Header />
                 <Routes>
                     <Route path='/sign-in' element={<Login onLogin={handleLogin} />} />
-                    <Route path='/' element={<Main />} />
-                    <Route path='/add-plan' element={<AddCard />} />
-                    <Route path='/edit-profile' element={<EditProfile />} />
+                    <Route
+                        path='/'
+                        element={
+                            <Main />
+                            // <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            //     <Main />
+                            // </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/add-plan"
+                        element={
+                            <AddCard />
+                            // <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            //     <AddCard />
+                            // </ProtectedRoute>
+                        }
+                    />
                 </Routes>
                 <Footer />
                 <InfoToolTip

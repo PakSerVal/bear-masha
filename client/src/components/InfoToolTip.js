@@ -1,3 +1,4 @@
+import React from 'react';
 import oopsImage from '../images/oops.svg';
 
 function InfoToolTip(props) {

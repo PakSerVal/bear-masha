@@ -5,9 +5,9 @@ export const authorize = (login, password) => {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
-        body: JSON.stringify({ login, password })
+        body: "login=" + login + "&" + "password=" + password,
     })
         .then((res) => {
             if (!res.ok) {
