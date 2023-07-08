@@ -3,7 +3,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import Header from './Header';
 import Main from './Main';
-import Footer from './Footer';
 import Login from './Login';
 import AddCard from './AddCard';
 import InfoToolTip from './InfoToolTip';
@@ -74,7 +73,6 @@ function App() {
                         }
                     />
                 </Routes>
-                <Footer />
                 <InfoToolTip
                     isOpen={isInfoTooltipPopupOpen}
                     onClose={closeAllPopups}

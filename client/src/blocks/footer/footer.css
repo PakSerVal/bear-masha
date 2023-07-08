@@ -1,3 +1,6 @@
 .footer {
     z-index: 1000;
+    justify-self: flex-end;
+    position: absolute;
+    bottom: 0;
 }
